@@ -6,9 +6,14 @@
     tools:context=".ManageFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fontFamily="@font/oblivionfont"
+        android:gravity="center"
+        android:text="Manage&#xA;Manage&#xA;Manage&#xA;Manage&#xA;Manage"
+        android:textSize="100sp" />
 
 </FrameLayout>

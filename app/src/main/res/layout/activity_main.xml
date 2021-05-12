@@ -29,6 +29,7 @@
         android:layout_width="40dp"
         android:layout_height="29dp"
         android:background="@android:color/transparent"
+        android:onClick="leftClick"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewTop"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,6 +40,7 @@
         android:layout_width="40dp"
         android:layout_height="30dp"
         android:background="@android:color/transparent"
+        android:onClick="rightClick"
         app:layout_constraintBottom_toBottomOf="@+id/imageViewTop"
         app:layout_constraintEnd_toEndOf="@+id/imageViewTop"
         app:layout_constraintTop_toTopOf="parent"
@@ -49,17 +51,13 @@
         android:id="@+id/topText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="235dp"
-        android:layout_marginBottom="293dp"
         android:fontFamily="@font/oblivionfont"
         android:text="Quests"
         android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageViewTop2"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewTop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewTop"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -70,5 +68,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageViewTop2"
         app:srcCompat="@drawable/compassframe" />
+
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageViewTop2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

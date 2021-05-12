@@ -9,6 +9,9 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:fontFamily="@font/oblivionfont"
+        android:gravity="center"
+        android:text="Quests&#xA;Quests&#xA;Quests&#xA;Quests&#xA;Quests"
+        android:textSize="100sp" />
 
 </FrameLayout>
