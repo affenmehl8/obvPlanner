@@ -69,8 +69,8 @@
         app:layout_constraintTop_toTopOf="@+id/imageViewTop2"
         app:srcCompat="@drawable/compassframe" />
 
-    <FrameLayout
-        android:id="@+id/fragmentContainer"
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewpager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="75dp"
@@ -78,8 +78,6 @@
         app:layout_constraintBottom_toTopOf="@+id/imageViewTop2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewTop">
-
-    </FrameLayout>
+        app:layout_constraintTop_toBottomOf="@+id/imageViewTop" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

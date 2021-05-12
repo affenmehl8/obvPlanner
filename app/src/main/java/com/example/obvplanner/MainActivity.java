@@ -1,6 +1,10 @@
 package com.example.obvplanner;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.FragmentManager;
 import android.os.Bundle;
@@ -8,9 +12,9 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity{
 
-    FragmentManager fm = getFragmentManager();
-    QuestsFragment questsFragment = new QuestsFragment();
-    ManageFragment manageFragment = new ManageFragment();
+    private ViewPager2 viewPager;
+
+
 
 
     @Override
@@ -18,7 +22,12 @@ public class MainActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //fm.beginTransaction()
+// Instantiate a ViewPager2 and a PagerAdapter.
+        viewPager = findViewById(R.id.viewpager2);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        viewPager.setAdapter(viewPagerAdapter);
+
+
 
     }
 
@@ -32,4 +41,12 @@ public class MainActivity extends AppCompatActivity{
     public void rightClick(View view) {
 
     }
+
+
+
+
+
+
 }
+
+
