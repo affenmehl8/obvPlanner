@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ManageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:id="@+id/textView"
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        android:src="@drawable/background" />
+
+    <TextView
+        android:id="@+id/add_quest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/btn_long_off"
         android:fontFamily="@font/oblivionfont"
-        android:gravity="center"
-        android:text="Manage&#xA;Manage&#xA;Manage&#xA;Manage&#xA;Manage"
-        android:textSize="100sp" />
+        android:onClick="onClickAddQuest"
+
+        android:text="@string/add_quest"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/manage_quest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="125dp"
+        android:background="@drawable/btn_long_off"
+        android:fontFamily="@font/oblivionfont"
+        android:onClick="onClickManageQuest"
+        android:text="@string/manage_quest"
+        android:textSize="30sp" />
+
+
 
 </FrameLayout>

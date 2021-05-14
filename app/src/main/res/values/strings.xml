@@ -2,4 +2,6 @@
     <string name="app_name">obvPlanner</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_quest">&#160;Add a Quest&#160;&#160;</string>
+    <string name="manage_quest">&#160;Manage a Quest&#160;&#160;</string>
 </resources>

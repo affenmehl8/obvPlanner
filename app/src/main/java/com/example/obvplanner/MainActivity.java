@@ -7,7 +7,9 @@ import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity{
@@ -43,10 +45,13 @@ public class MainActivity extends AppCompatActivity{
     }
 
 
+    public void onClickAddQuest(View view) {
+        startActivity(new Intent(MainActivity.this, AddQuestActivity.class));
+    }
 
-
-
-
+    public void onClickManageQuest(View view) {
+        startActivity(new Intent(MainActivity.this, ManageQuestActivity.class));
+    }
 }
 
 
