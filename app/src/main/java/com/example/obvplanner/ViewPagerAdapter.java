@@ -18,11 +18,15 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
 
         switch (position) {
             case 0:
+                return  new QuestsFragment();
+            case 1:
                 return  new ManageFragment();
-            default:
+            case 2:
+                return new MapFragment();
+                default:
                 return  new QuestsFragment();
         }
     }
     @Override
-    public int getItemCount() {return 2; }
+    public int getItemCount() {return 3; }
 }

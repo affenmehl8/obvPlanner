@@ -15,8 +15,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity{
 
     private ViewPager2 viewPager;
-
-
+    private static int itemcnt;
+    private static int itemmax;
 
 
     @Override
@@ -28,8 +28,8 @@ public class MainActivity extends AppCompatActivity{
         viewPager = findViewById(R.id.viewpager2);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         viewPager.setAdapter(viewPagerAdapter);
-
-
+        viewPager.setUserInputEnabled(false);
+        itemmax = viewPagerAdapter.getItemCount();
 
     }
 
@@ -38,10 +38,25 @@ public class MainActivity extends AppCompatActivity{
 
 
     public void leftClick(View view) {
+        if(itemcnt==0){
+            itemcnt=(itemmax-1);
+            viewPager.setCurrentItem(itemcnt,true);
+        }
+        else {
+            itemcnt--;
+            viewPager.setCurrentItem(itemcnt,true);
+        }
     }
 
     public void rightClick(View view) {
-
+        if(itemcnt==(itemmax-1)){
+            itemcnt=0;
+            viewPager.setCurrentItem(itemcnt,true);
+        }
+        else {
+            itemcnt++;
+            viewPager.setCurrentItem(itemcnt,true);
+        }
     }
 
 

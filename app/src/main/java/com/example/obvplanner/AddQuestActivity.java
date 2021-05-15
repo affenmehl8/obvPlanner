@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.graphics.PointF;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -55,11 +56,8 @@ public class AddQuestActivity extends AppCompatActivity {
     public void onClickAddQuest(View view) {
         LatLng position = mapboxMap.getProjection().fromScreenLocation(new PointF(arrow.getLeft()+(arrow.getWidth()/2), arrow.getBottom()));
 
-        //nur zum testing
-        ViewGroup.LayoutParams lp = mapView.getLayoutParams();
-        lp.height = 1800;
-        mapView.setLayoutParams(lp);
-
+        Log.d("coords",position.getLatitude()+" "+position.getLongitude());
+//latitude wird falsch berechnet!!!
 
 
     }
