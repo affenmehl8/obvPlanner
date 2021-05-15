@@ -4,4 +4,5 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="add_quest">&#160;Add a Quest&#160;&#160;</string>
     <string name="manage_quest">&#160;Manage a Quest&#160;&#160;</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYWZmZW5tZWhsOCIsImEiOiJja29wcDUxZXAwbm1kMnZwOXdzNXJjYzV6In0.DfXgDjtLUR2D6YFdUuD2Wg</string>
 </resources>
