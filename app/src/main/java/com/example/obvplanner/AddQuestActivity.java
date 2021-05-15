@@ -2,19 +2,25 @@ package com.example.obvplanner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.PointF;
 import android.os.Bundle;
 import android.view.View;
-
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.mapbox.mapboxsdk.Mapbox;
+import com.mapbox.mapboxsdk.geometry.LatLng;
 import com.mapbox.mapboxsdk.maps.MapView;
 import com.mapbox.mapboxsdk.maps.MapboxMap;
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback;
 import com.mapbox.mapboxsdk.maps.Style;
 
+
 public class AddQuestActivity extends AppCompatActivity {
 
     private MapView mapView;
+    private MapboxMap mapboxMap;
+    private ImageView arrow;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,11 +28,15 @@ public class AddQuestActivity extends AppCompatActivity {
         Mapbox.getInstance(this, getString(R.string.mapbox_access_token));
         setContentView(R.layout.activity_add_quest);
 
+        arrow = (ImageView) findViewById(R.id.locationPickerArrow);
+
         mapView = (MapView) findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(@NonNull MapboxMap mapboxMap) {
+
+                AddQuestActivity.this.mapboxMap = mapboxMap;
 
                 mapboxMap.setStyle(Style.MAPBOX_STREETS, new Style.OnStyleLoaded() {
                     @Override
@@ -43,5 +53,14 @@ public class AddQuestActivity extends AppCompatActivity {
     }
 
     public void onClickAddQuest(View view) {
+        LatLng position = mapboxMap.getProjection().fromScreenLocation(new PointF(arrow.getLeft()+(arrow.getWidth()/2), arrow.getBottom()));
+
+        //nur zum testing
+        ViewGroup.LayoutParams lp = mapView.getLayoutParams();
+        lp.height = 1800;
+        mapView.setLayoutParams(lp);
+
+
+
     }
 }
