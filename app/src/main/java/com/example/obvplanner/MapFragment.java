@@ -113,11 +113,15 @@ public class MapFragment extends Fragment {
                 //CANCER BEGINS
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                        Point.fromLngLat(24.779620094538217, 3.5946990139309065)));
+                        Point.fromLngLat(90.99606460344557, 46.38225854685524)));
+                symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                        Point.fromLngLat(14.183392406598728, 52.044270830997874)));
+
+                /*
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
                         Point.fromLngLat(-54.14164, -33.981818)));
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                        Point.fromLngLat(-56.990533, -30.583266)));
+                        Point.fromLngLat(-56.990533, -30.583266)));*/
 
                 mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
 

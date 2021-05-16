@@ -12,7 +12,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+
+
 public class MainActivity extends AppCompatActivity{
+    public static final int ADDLOCATION_REQUEST = 1;
+
+
 
     private ViewPager2 viewPager;
     private static int itemcnt;
