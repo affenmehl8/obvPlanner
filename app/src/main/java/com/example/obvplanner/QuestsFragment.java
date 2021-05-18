@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
+import java.util.List;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link QuestsFragment#newInstance} factory method to
@@ -20,9 +22,12 @@ import android.widget.TextView;
 public class QuestsFragment extends Fragment {
 
 
-RecyclerView recyclerView;
-RecyclerView.Adapter adapter;
-RecyclerView.LayoutManager layoutManager;
+RecyclerView recyclerView1;
+RecyclerView.Adapter adapter1;
+RecyclerView recyclerView2;
+RecyclerView.Adapter adapter2;
+RecyclerView.LayoutManager layoutManager1;
+RecyclerView.LayoutManager layoutManager2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -77,12 +82,22 @@ RecyclerView.LayoutManager layoutManager;
 
 
         //CardHolder etc. um die Quests darzustellen
-        recyclerView = view.findViewById(R.id.recyclerView);
-        recyclerView.setHasFixedSize(true);
-        layoutManager = new LinearLayoutManager(getContext());
-        adapter = new RVcustomAdapter(MainActivity.questList);
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(adapter);
+        List<Quest> questListActive = MainActivity.getQuestListActive();
+
+        recyclerView1 = view.findViewById(R.id.recyclerView1);
+        recyclerView1.setHasFixedSize(false);
+        //adapter1 = new RVcustomAdapter(MainActivity.getQuestListActive());
+        adapter1 = new RVcustomAdapter(MainActivity.questList);
+        layoutManager1 = new LinearLayoutManager(getContext());
+        recyclerView1.setLayoutManager(layoutManager1);
+        recyclerView1.setAdapter(adapter1);
+
+        recyclerView2 = view.findViewById(R.id.recyclerView2);
+        recyclerView2.setHasFixedSize(false);
+        adapter2 = new RVcustomAdapter(MainActivity.getQuestListFinished());
+        layoutManager2 = new LinearLayoutManager(getContext());
+        recyclerView2.setLayoutManager(layoutManager2);
+        recyclerView2.setAdapter(adapter2);
 
         return view;
     }
@@ -90,6 +105,8 @@ RecyclerView.LayoutManager layoutManager;
     @Override
     public void onResume() {
         super.onResume();
-        adapter.notifyDataSetChanged();
+
+        adapter1.notifyDataSetChanged();
+       // adapter2.notifyDataSetChanged();
     }
 }

@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity{
     private static int itemcnt;
     private static int itemmax;
 
-    public static ArrayList<Quest> questList;
+    public static List<Quest> questList;
 
     private TextView tvTopText;
 
@@ -78,6 +78,13 @@ public class MainActivity extends AppCompatActivity{
             Log.e("error", "onCreate: "+e.toString());
             e.printStackTrace();
         }
+        //for testing
+        Quest f1 = new Quest("finito","",0,0);
+        Quest f2 = new Quest("mikele","",0,0);
+        f1.active = false;
+        f2.active = false;
+        questList.add(f1);
+        questList.add(f2);
 
 
 
@@ -167,7 +174,8 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void onClickManageQuest(View view) {
-        startActivity(new Intent(MainActivity.this, ManageQuestActivity.class));
+        Log.e("itemcount","Questlist size:"+questList.size());
+        //startActivity(new Intent(MainActivity.this, ManageQuestActivity.class));
     }
     
     public static ArrayList<Quest> getQuestListActive(){

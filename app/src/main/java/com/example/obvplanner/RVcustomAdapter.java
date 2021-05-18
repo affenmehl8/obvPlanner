@@ -10,10 +10,11 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class RVcustomAdapter extends RecyclerView.Adapter<RVcustomAdapter.RVcustomViewHolder> {
 
-    private ArrayList<Quest> questList;
+    private List<Quest> questList;
 
     public static  class RVcustomViewHolder extends RecyclerView.ViewHolder {
         TextView tvTitle;
@@ -26,6 +27,9 @@ public class RVcustomAdapter extends RecyclerView.Adapter<RVcustomAdapter.RVcust
         }
     }
 
+    public RVcustomAdapter(List<Quest> questList) {
+        this.questList = questList;
+    }
     public RVcustomAdapter(ArrayList<Quest> questList) {
         this.questList = questList;
     }
