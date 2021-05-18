@@ -112,6 +112,7 @@ public class MapFragment extends Fragment {
 
                 //CANCER BEGINS
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
+                //questList aus MainActivity ziehen
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
                         Point.fromLngLat(90.99606460344557, 46.38225854685524)));
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(

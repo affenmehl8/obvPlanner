@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,10 +25,15 @@ import static com.example.obvplanner.MainActivity.ADDLOCATION_REQUEST;
 
 public class AddQuestActivity extends AppCompatActivity {
 
-    TextView longitude;
-    TextView latitude;
-    double dblLongitude = 0;
-    double dblLatitude = 0;
+    private TextView longitude;
+    private TextView latitude;
+    private double dblLongitude = 0;
+    private double dblLatitude = 0;
+
+    private EditText title;
+    private EditText description;
+    private String strTitle = "";
+    private String strDescription = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,8 @@ public class AddQuestActivity extends AppCompatActivity {
 
         longitude = (TextView) findViewById(R.id.longitude);
         latitude = (TextView) findViewById(R.id.latitude);
+        title = (EditText) findViewById(R.id.editTextTitle);
+        description = (EditText) findViewById(R.id.editTextDescription);
 
     }
 
@@ -61,6 +69,18 @@ public class AddQuestActivity extends AppCompatActivity {
 
 
     public void onClickAddQuest(View view) {
+        strTitle = title.getText().toString();
+        strDescription = description.getText().toString();
+
+        Intent replyIntent = new Intent();
+
+        replyIntent.putExtra("title", strTitle);
+        replyIntent.putExtra("description", strDescription);
+        replyIntent.putExtra("longitude",dblLongitude);
+        replyIntent.putExtra("latitude",dblLatitude);
+
+        setResult(RESULT_OK,replyIntent);
+        finish();
     }
 
     public void openPicker(View view) {
