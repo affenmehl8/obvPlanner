@@ -113,27 +113,24 @@ public class MapFragment extends Fragment {
                 //CANCER BEGINS
                 List<Feature> symbolLayerIconFeatureList = new ArrayList<>();
                 //questList aus MainActivity ziehen
-                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                        Point.fromLngLat(90.99606460344557, 46.38225854685524)));
-                symbolLayerIconFeatureList.add(Feature.fromGeometry(
-                        Point.fromLngLat(14.183392406598728, 52.044270830997874)));
+                for (Quest q:MainActivity.questList) {
+                    symbolLayerIconFeatureList.add(Feature.fromGeometry(
+                            Point.fromLngLat(q.longitude, q.latitude)));
+                }
 
-                /*
+                /* Beispiele
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
                         Point.fromLngLat(-54.14164, -33.981818)));
                 symbolLayerIconFeatureList.add(Feature.fromGeometry(
                         Point.fromLngLat(-56.990533, -30.583266)));*/
 
                 mapboxMap.setStyle(new Style.Builder().fromUri("mapbox://styles/mapbox/cjf4m44iw0uza2spb3q0a7s41")
-
 // Add the SymbolLayer icon image to the map style
                         .withImage(ICON_ID, BitmapFactory.decodeResource(
                                 MapFragment.this.getResources(), R.drawable.mapbox_marker_icon_default))
-
 // Adding a GeoJson source for the SymbolLayer icons.
                         .withSource(new GeoJsonSource(SOURCE_ID,
                                 FeatureCollection.fromFeatures(symbolLayerIconFeatureList)))
-
 // Adding the actual SymbolLayer to the map style. An offset is added that the bottom of the red
 // marker icon gets fixed to the coordinate, rather than the middle of the icon being fixed to
 // the coordinate point. This is offset is not always needed and is dependent on the image
