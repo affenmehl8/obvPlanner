@@ -29,6 +29,9 @@ RecyclerView.Adapter adapter2;
 RecyclerView.LayoutManager layoutManager1;
 RecyclerView.LayoutManager layoutManager2;
 
+List<Quest> questListActive;
+List<Quest> questListFinished;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -82,19 +85,22 @@ RecyclerView.LayoutManager layoutManager2;
 
 
         //CardHolder etc. um die Quests darzustellen
-        List<Quest> questListActive = MainActivity.getQuestListActive();
+        questListActive = MainActivity.getQuestListActive();
+        questListFinished = MainActivity.getQuestListFinished();
 
         recyclerView1 = view.findViewById(R.id.recyclerView1);
-        recyclerView1.setHasFixedSize(false);
-        //adapter1 = new RVcustomAdapter(MainActivity.getQuestListActive());
-        adapter1 = new RVcustomAdapter(MainActivity.questList);
+        recyclerView1.setHasFixedSize(true);
+        recyclerView1.setNestedScrollingEnabled(false);
+        adapter1 = new RVcustomAdapter(questListActive);
+        //adapter1 = new RVcustomAdapter(MainActivity.questList);
         layoutManager1 = new LinearLayoutManager(getContext());
         recyclerView1.setLayoutManager(layoutManager1);
         recyclerView1.setAdapter(adapter1);
 
         recyclerView2 = view.findViewById(R.id.recyclerView2);
-        recyclerView2.setHasFixedSize(false);
-        adapter2 = new RVcustomAdapter(MainActivity.getQuestListFinished());
+        recyclerView2.setHasFixedSize(true);
+        recyclerView2.setNestedScrollingEnabled(false);
+        adapter2 = new RVcustomAdapter(questListFinished);
         layoutManager2 = new LinearLayoutManager(getContext());
         recyclerView2.setLayoutManager(layoutManager2);
         recyclerView2.setAdapter(adapter2);
@@ -105,7 +111,14 @@ RecyclerView.LayoutManager layoutManager2;
     @Override
     public void onResume() {
         super.onResume();
-
+        for (Quest q:MainActivity.questList) {
+            if(!questListActive.contains(q)) {
+                if(q.active == true) {
+                    questListActive.add(q); }
+                else {
+                    questListFinished.add(q); }
+            }
+        }
         adapter1.notifyDataSetChanged();
        // adapter2.notifyDataSetChanged();
     }
